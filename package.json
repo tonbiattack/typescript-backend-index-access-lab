@@ -1,0 +1,17 @@
+{
+  "name": "typescript-backend-index-access-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A reproducible backend TypeScript lab about unchecked indexed access in authorization maps",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "repro": "vitest run test/authorization.test.ts -t \"denies a user missing from the role map\""
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "typescript": "5.7.2",
+    "vitest": "2.1.8"
+  }
+}

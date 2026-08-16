@@ -1,0 +1,34 @@
+✓ Lockfile passes supply-chain policies (verified 3h ago)
+Lockfile is up to date, resolution step is skipped
+Already up to date
+
+Done in 814ms using pnpm v11.21.0
+$ vitest run test/authorization.test.ts -t "denies a user missing from the role map"
+
+ RUN  v2.1.8 /home/ubuntu/typescript-backend-index-access-lab
+
+ ❯ test/authorization.test.ts (2 tests | 1 failed | 1 skipped) 6ms
+   × DELETE /users/:id の認可 > denies a user missing from the role map 5ms
+     → Cannot read properties of undefined (reading 'includes')
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/authorization.test.ts > DELETE /users/:id の認可 > denies a user missing from the role map
+TypeError: Cannot read properties of undefined (reading 'includes')
+ ❯ Module.canDeleteUser src/authorization.ts:10:31
+      8| export function canDeleteUser(actorId: string): boolean {
+      9|   // BUG: Record<string, T> でも、実行時にはキーが存在しないことがある…
+     10|   return rolesByUser[actorId].includes("admin");
+       |                               ^
+     11| }
+     12| 
+ ❯ test/authorization.test.ts:6:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 skipped (2)
+   Start at  12:54:45
+   Duration  272ms (transform 40ms, setup 0ms, collect 35ms, tests 6ms, environment 0ms, prepare 61ms)
+
+[ELIFECYCLE] Command failed with exit code 1.
