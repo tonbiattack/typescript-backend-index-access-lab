@@ -6,7 +6,6 @@ const rolesByUser: Record<string, readonly Role[]> = {
 };
 
 export function canDeleteUser(actorId: string): boolean {
-  // BUG: Record<string, T> でも、実行時にはキーが存在しないことがある。
-  return rolesByUser[actorId].includes("admin");
+  return rolesByUser[actorId]?.includes("admin") ?? false;
 }
 

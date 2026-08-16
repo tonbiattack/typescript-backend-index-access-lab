@@ -1,0 +1,11 @@
+$ vitest run
+
+ RUN  v2.1.8 /home/ubuntu/typescript-backend-index-access-lab
+
+ ✓ test/authorization.test.ts (2 tests) 3ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  12:55:28
+   Duration  281ms (transform 39ms, setup 0ms, collect 34ms, tests 3ms, environment 0ms, prepare 62ms)
+
